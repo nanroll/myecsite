@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>リンク先</title>
+        <script>
+        
+            // getElementById('text1') = id=text1が付いた要素を取ってくる
+            window.onload=function() {
+                
+                // console.log(document.getElementById('text1').value);
+                // console.log(document.getElementById('text1').type);
+                // console.log(document.getElementById('text1').name);
+                // console.log(document.getElementById('text1'));
+            
+            
+            
+            var element_a = document.createElement('a');
+            var element_b = document.createElement('div');
+            var element_c = document.createElement('span');
+            element_a.innerHTML='abc';
+            element_a.href='http://';
+                console.log(element_a);
+                console.log(element_b);
+                console.log(element_c);
+
+            }
+        </script>
+    </head>
+    <body>
+        <!--forはnameと一致させる-->
+        <label for="text1">リンク名: </label>
+        <input type="text" name="text1" id="text1" value="abc"><!--valueは空白なら書かなくてもよい。-->
+        
+    </body>
+</html>

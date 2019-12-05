@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>株式会社なぁん</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="cookcamp.css">
+        <!--link href= CSSのファイルを指定する（参照先にもlinkがあり読み込めない phpファイルがCSSを返す中身であれば読める）-->
+        <!--<link rel="stylesheet" href='http://codecamp28042.lesson10.codecamp.jp./include/view/common/stylesheet.php">-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="icon" href="./img/favicon.ico">
+        <style>
+        
+        h2 {
+    margin: 0 0 10px 0;
+    background: url(../img/icon.png) no-repeat;
+    background-position: 0px;
+    /* border-radius: 30px; */
+    color: #664433;
+    line-height: 30px;
+    font-size: 16px;
+    padding-left: 30px;
+    border-bottom: solid 3px #D3C9C5;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.contents {
+    margin: 30px 0;
+    
+}
+
+.list-group-item {
+    border: 0;
+    display: block;
+    text-decoration: none;
+    /* no-repeat 0px x軸（横軸）(左上から） y軸（縦　左上から）*/
+    background: url(../img/arrow.png) no-repeat 0px;
+    line-height: 35px;
+    padding: 0 0 0 25px;
+    border-bottom: dotted 1px #cccccc;
+}
+             /*小さい画面の時だけの*/
+             /*メディアクエリを書く*/
+        
+            @media (max-width: 320px) {
+                #ip5 {
+                    font-size: 0.8rem;
+                }
+            }
+        
+        
+        
+        
+             /*line-height = 文字の行間を広げる*/
+        
+            /*デフォルト値が10pxになる　rem単位で幅を調整するときに区切りがいい*/
+            html {
+                /*font-size: 62.5%;*/
+            }
+            body {
+                font-size: 14px;
+            }
+            
+            @media (min-width: 768px) {
+                body {
+                    padding-top: 140px;
+                    
+                }
+            
+                /*.navbar-nav .nav-item {*/
+                /*border-left: 1px solid #000;*/
+                
+                /*}*/
+                .nav-item {
+                border-left: 1px solid #cccccc;
+                
+                }
+                /*　疑似デレクタ―　a.hover　とか */
+                .nav-item:first-child {
+                border: 0px;
+                }
+                
+            }            
+            
+            @media (max-width: 767px) {
+                .col-md-6 {
+                margin-top: 15px;
+                }
+                
+                .logo {
+                width: 120px;
+                height: auto;
+                margin-top: 10px;
+                }
+                
+                body {
+                padding-top: 170px;
+                }
+            
+            }
+            
+            
+            /*メディアクエリ＝　ブレイクポイントを設定しCSSを切り替える*/
+            /*@media (min-width: 768px) {*/
+                /*.logo {*/
+                /*    width: 120px;*/
+                /*    height: auto;*/
+                /*    margin-top: 15px;*/
+                /*}*/
+                .logo {
+                    margin-top: 15px;
+                }
+            /*}            */
+            
+            
+            @media(max-width: 767px) {
+                .togle-icon-top {
+                    margin-top: -41px;
+                    
+                }
+            }
+            
+            .navbar-toggler-icon {
+                font-size: calc(16px * 1.25);
+            }
+            
+            /*.navbar-nav .nav-item {*/
+            /*    border-left: 1px solid #000;*/
+                
+            /*}*/
+            /*　疑似デレクタ―　a.hover　とか */
+            /*.nav-item:first-child {*/
+            /*    border: 0px;*/
+            /*}*/
+            
+            .dropdown-item {
+                font-size: 16px;
+            }
+            
+            .nav-link {
+                padding: 3px 1rem;
+            }
+            
+            /*例*/
+/*<li><a class="list"></a></li>*/
+
+/*a.list = listというクラス名の付いたaのみ（下のpは反応しない）*/
+
+/*.list a = listという名のクラスの中にあるa要素に　　という意味*/
+
+/*<li><p class="list"></p></li>*/
+
+
+
+/*どこに線があるか*/
+/*nav li:last-child a {*/
+    /*border-bottom: 0;*/
+/*}*/
+
+/*/今回は*一つしかないので*/
+.list-group-item:last-child {
+    border-bottom: 0;
+}
+
+
+footer {
+  border-top: solid 1px #CCCCCC;
+}
+            
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <!--ナビゲーションバー-->
+            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+                <div class="container-fluid">
+                    <!--no-gutters = rowのマージンを打ち消す（コンテナのパディング通りの幅になる）-->
+                    <div class="row w-100 no-gutters">
+                        <div class="col-12 text-center">
+                            <a href="#"><img src="https://3.bp.blogspot.com/-mBh7QBCP008/VyNc8Ze6CRI/AAAAAAAA6Jg/du9e6RVAFVsB8abJ_foDA_T9QcsfdHH8gCLcB/s180-c/allergy_cat.png" class="logo" alt="ロゴ"></a>
+                        </div>
+                        
+                        <!--スマホサイズ画面の時、ハンバーガーメニュー-->
+                        <div class="col-12 text-right text-md-center togle-icon-top"> 
+                            <button class="navbar-toggler border-white" data-toggle="collapse" data-target="#mainNav">
+                            <!--バーガーアイコンを出したいため、インラインの<span>タグにクラスつける-->
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse text-center mt-3" id="mainNav">
+                                <ul class="navbar-nav d-inline-flex m-auto">
+                                <!--<ul class="navbar-nav d-inline-flex">    -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown">株式会社 nan について</a>
+                                        <div class="dropdown-menu text-center" >
+                                            <a href="#" class="dropdown-item">ごあいさつ</a>
+                                            <a href="#" class="dropdown-item">事業概要</a>
+                                            <a href="#" class="dropdown-item">会社概要</a>
+                                            <a href="#" class="dropdown-item">ＩＲ情報</a>
+                                            <a href="#" class="dropdown-item">採用情報</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item"><a href="#" class="nav-link">取扱商品</a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link">なぁん とは</a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link">お問い合わせ</a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link">アクセス</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </nav>
+            
+            <!--カルーセル挿入-->
+            <div id="cl" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#cl" data-slide-to="0" class="active"></li>
+                    <li data-target="#cl" data-slide-to="1"></li>
+                    <li data-target="#cl" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active"><img src="https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/72069221_379446699627777_7948595477085902547_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com&_nc_cat=109&oh=d6603ab47de3da2b1f97931381b3e70c&oe=5E8BC749" class="d-block w-100"></div>
+                    <div class="carousel-item"><img src="https://scontent-nrt1-1.cdninstagram.com/v/t51.2885-15/e35/69614778_1235633916620661_2015773356897422458_n.jpg?_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_cat=109&oh=3426a89cbc4000f761fee71776801c8a&oe=5E572C9A" class="d-block w-100"></div>
+                    <div class="carousel-item"><img src="../../Bootstrap/img/key_visual3.jpg" class="d-block w-100"></div>
+                </div>
+                <a class="carousel-control-prev" href="#cl" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#cl" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </header>
+        
+        
+        
+        
+        
+        <main>
+        <!--レシピ検索フォーム-->
+            <div class="container">
+                <div class="contents">
+                    <form class="form-inline">
+                        <div class="form-group w-100">
+                        <!--form-inline = （blockだと横に入れない。inlineにすろことで）横並びになる-->
+                            <div class="row btn-group w-100 ml-0">
+                        <!--<div class="row w-100">-->
+                                <label class="sr-only" for="serch"></label>
+                                <input class="form-control col-md-4 col-8 mt-1 " type="text" id="serch" placeholder="料理名・食材名で検索">
+                            <!--form-control=角丸の大きめのフォームが出来る-->
+                                <button type="submit" class="btn btn-primary col-md-2 col-4 mt-1" id="ip5">レシピ検索</button>
+                            </div>
+                        </div>
+                    </form>    
+                </div>
+            </div>
+
+        
+        
+        
+         <!-- サンプル -->
+  <!--<section class="container">-->
+  <!--  <div class="contents">--> 
+  <!--    <form class="form-inline">-->
+        <!--<div class="form-group w-100">--> <!--form-group=中の要素（別フォームとかボタンとかの）高さ等が合う-->
+  <!--        <div class="row btn-group w-100 ml-0">--><!--btn-group = フォームとボタンの境界が丸くない（くっついて）ボタンとボタンでも-->
+  <!--          <input type="text" class="d-inline col-8 col-md-4 form-control text-small" id="exampleInputAmount" placeholder="料理名・食材名で検索">-->
+  <!--          <a href="#" class="col-4 col-md-2 btn btn-light border text-small text-nowrap">レシピ検索</a>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </form>-->
+  <!--  </div>-->
+  <!--</section>-->
+        
+        
+            <!-- メインコンテンツ -->
+            <div class="container">
+                <div class="row">
+                    <!-- サイドバー -->
+                    <div class="col-lg-3">
+                        <h2 class="d-none d-lg-block">料理別レシピ</h2>
+                        <div class="list-group d-none d-lg-block">
+                            <a href="#" class="list-group-item w-100">和食</a>
+                            <a href="#" class="list-group-item w-100">イタリアン</a>
+                            <a href="#" class="list-group-item w-100">フレンチ</a>
+                            <a href="#" class="list-group-item w-100">中華</a>
+                            <a href="#" class="list-group-item w-100">アジアン</a>
+                            <a href="#" class="list-group-item w-100">エスニック</a>
+                            <a href="#" class="list-group-item w-100">鍋</a>
+                            <a href="#" class="list-group-item w-100">デザート</a>
+                            <a href="#" class="list-group-item w-100">お弁当</a>
+                            <a href="#" class="list-group-item w-100">簡単おかず</a>
+                            <a href="#" class="list-group-item w-100">ダイエット</a>
+                            <a href="#" class="list-group-item w-100">ベビーフード</a>
+                            <a href="#" class="list-group-item w-100">節約食材</a>
+                            <a href="#" class="list-group-item w-100">アレルギー</a>
+                            <a href="#" class="list-group-item w-100">シニア料理</a>
+                        </div>
+                        <br><br>
+                        <!--トップメニュー-->
+                        <div class="d-lg-none">
+                            <h2>ジャンル別レシピ</h2>
+                        <div class="row contents">
+                            <div class="col-4 pl-2 pr-2">
+                                <a href="#" class="btn border btn-block text-small text-nowrap" id="ip5">和食</a>
+                            <!--nowrap = 改行しない　text-small = 自前のクラス-->
+                            </div>
+                            <div class="col-4 pl-1 pr-1">
+                                <a href="#" class="btn border btn-block text-small text-nowrap" id="ip5">イタリアン</a>
+                            </div>
+                            <div class="col-4 pl-2 pr-2">
+                                <a href="#" class="btn border btn-block text-small text-nowrap" id="ip5">フレンチ</a>
+                            </div>
+                        </div>
+                        <div class="row contents">
+                            <div class="col-4 pl-2 pr-2">
+                                <a href="#" class="btn border btn-block text-small text-nowrap" id="ip5">洋食</a>
+                            </div>
+                        <div class="col-4 pl-2 pr-2">
+                                <a href="#" class="btn border btn-block text-small text-nowrap" id="ip5">中華</a>
+                        </div>
+                        <div class="col-4 pl-2 pr-2">
+                                <a href="#" class="btn border btn-block text-small text-nowrap" id="ip5">その他</a>
+                                <!--スマホ版は情報を出し過ぎないケースが多い（見るのに飽きて離れてしまうのを防ぐ）UXで考えられている-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        <!-- メイン記事 -->
+        <div class="col-lg-9">
+            
+        <!--日付を付けたら記事として成り立つもの＝article-->  
+        <!--sectionはただの節目--><!--div = 見た目を整えたいとき（意味は特になし）-->
+        <article class="contents" style="margin-top: 0;">
+            
+            <h2>新着レシピ</h2>
+            <div class="row">
+            <div class="col-md-3 col-6 text-center">
+              <!--モーダルで出現させる為のボタン = role  出現先 = data-target （#my-modalというIDの内容を出す）  -->
+              <!--data-toggle = 何の為のトグルか-->
+              <a role="button" data-target="#my-modal1" data-toggle="modal">
+                 <!--画像の上にマウスを置くとにゅっとでる data-toggle="tooltip" -->
+                <img src="../img/image01.jpg" class="img-fluid" data-toggle="tooltip" data-original-title="イタリアン">
+                <p class="text-center">季節野菜の彩り前菜</p>
+              </a>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+              <a data-target="#my-modal2" role="button" data-toggle="modal">
+                <img src="../img/image02.jpg" class="img-fluid" data-toggle="tooltip" data-original-title="フレンチ">
+                <p class="text-center">簡単かぼちゃスープ</p>
+              </a>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+              <a data-target="#my-modal3" role="button" data-toggle="modal">
+                <img src="../img/image03.jpg" class="img-fluid" data-toggle="tooltip" data-original-title="ダイエット">
+                <p class="text-center">ヘルシー米粉パン</p>
+              </a>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+              <a data-target="#my-modal4" role="button" data-toggle="modal">
+                <img src="../img/image04.jpg" class="img-fluid" data-toggle="tooltip" data-original-title="エスニック">
+                <p class="text-center">ぷりぷりエビ料理</p>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- モーダル -->
+        <div class="modal fade" id="my-modal1">
+            <!--モーダルの領域　ここでいう外枠-->
+          <div class="modal-dialog">
+            <!--modal-content 今からモーダルを書くよの合図　白い表示領域も作る-->
+            <div class="modal-content">
+              <div class="modal-body">
+                  <!--data-dismiss="modal" modalの閉じる機能を有効にする（閉じるボタン以外でもクリックしたら閉じる）-->
+                  <!--モーダルの動き（機能）＝（枠の外か、閉じる）を押されたら閉じる-->
+                  <!--imgタグの中、buttonタグの中　それぞれにdismissを付けることで閉じる機能を付与している-->
+                <img src="../img/image08.jpg" class="img-fluid" data-dismiss="modal">
+                <p>様々な食材を使用し作り上げた色とりどりの前菜はテーブルをカラフルに彩ります♪</p>
+              </div>
+              <!--modal-footer = bodyとfooterの境界に線が作られる-->
+              <div class="modal-footer">
+                  <!--btn-sm = 最小のボタン-->
+                <button class="btn btn-light border btn-sm" data-dismiss="modal">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </div>    
+        <div class="modal fade" id="my-modal2">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="../img/image09.jpg" class="img-fluid" data-dismiss="modal">
+                <p>柔らかく蒸したあとはホイッパーで混ぜるだけの簡単レシピです！かぼちゃは、ビタミンやミネラルが豊富なので美容や冷え性に良いですよ♪</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-light border btn-sm" data-dismiss="modal">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="my-modal3">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="../img/image10.jpg" class="img-fluid" data-dismiss="modal">
+                <p>米粉を使ったさっくりとした軽い食感のパンです♪米粉は日本の主食のお米で作られており、ヘルシーで口当たりもいいですよ♪</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-light border btn-sm" data-dismiss="modal">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="my-modal4">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="../img/image11.jpg" class="img-fluid" data-dismiss="modal">
+                <p>エビがサラダやスープ、ごはんなどに入っていると、テンションが上がりますよね♪ただ、エビは意外に調理が難しいという声も...。実はあるテクニックを使うだけでエビがプリップリに仕上がっちゃうんです♪</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-light border btn-sm" data-dismiss="modal">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <article class="contents">
+          <h2>今だからこそ見直したい「和食」</h2>
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <img src="../img/image05.jpg" class="img-fluid">
+            </div>
+            <!--col-12 は、省略している（画面サイズに合わせて）-->
+            <div class="col-md-6">
+              <p>普段、私たちが何気なく口にしている和食ですが、その基本は一汁三菜。ご飯、味噌汁、お漬物の他、主菜(魚またはお肉)  、副菜として季節毎の野菜と豆類で構成されます。</p>
+              <p>昔から「旬の野菜を食べましょう」と言いますが、それは素材がじっくりと時間をかけて蓄積してきた旨みや栄養価が最高にな  ったところでいただいて、効率よく栄養を取り風邪などの予防をしましょうね、ということです。それでは各季節毎の旬の野菜について調べてみましょう。</p>
+              <div class="col-md-8 ml-auto mr-auto">
+                <a href="#" class="btn btn-warning btn-block">続きを読む ></a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="contents">
+          <h2>簡単！おすすめレシピ</h2>
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <img src="../img/image06.jpg" class="img-fluid">
+              <h3>季節の食材〜春〜</h3>
+              <p>新タマネギに春キャベツ、新じゃが、山菜などなど・・・春の野菜は風味がよくみずみずしいのが特長です。それでは春野菜を使ったレシピを紹介しましょう。 </p>
+              <div class="col-md-8 ml-auto mr-auto">
+                <a href="#" class="btn btn-warning btn-block">続きを読む ></a>
+              </div>
+            </div>
+            <div class="col-md-6 text-center">
+              <img src="../img/image07.jpg" class="img-fluid">
+              <h3>春野菜を食べて花粉症対策！？</h3>
+              <p>春になると花粉症に悩まされる人は多いとおもいます。この花粉症、ある食材を摂ることで少し緩和されるんです！さてその食材とは・・・！？</p>
+              <div class="col-md-8 ml-auto mr-auto">
+                <a href="#" class="btn btn-warning btn-block">続きを読む ></a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div> <!-- メインコンテンツ -->
+        
+        <!-- フッター -->
+  <footer class="footer contents">
+    <div class="container-fluid text-center">
+      <ul class="nav flex-column flex-md-row justify-content-center mt-2">
+        <li class="nav-item"><a href="#" class="nav-link">サイトマップ</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">プライバシーポリシー</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">お問い合わせ</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">ご利用ガイド</a></li>
+      </ul>
+      <small>Copyright&copy; CodeCamp All Rights Reserved.</small>
+    </div>
+  </footer>
+        
+        </main>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+        <!--ツールチップを使用するために入れる-->
+        <script type="text/javascript">
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+                $(document).on('click', 'button.navbar-toggler', function(){
+                    if ($(this).hasClass('open')) {
+                        $(this).html('<span class="navbar-toggler-icon"></span>');
+                        $(this).removeClass('open');
+                    } else {
+                        $(this).html('<i class="fas fa-times"></i>');
+                        // $(this).html('<span>X</span>');
+                        // <i class="fas fa-times"></i>
+                        $(this).addClass('open');
+                    }
+                      
+                });
+            })
+        </script>
+    
+    </body>     
+
+</html>            
